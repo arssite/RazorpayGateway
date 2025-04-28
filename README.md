@@ -1,52 +1,56 @@
-Razorpay Checkout Integration
+# Razorpay Checkout Integration
+
 This project integrates Razorpay's Checkout to securely collect payments from users.
 
-⚡ Problem Faced
+---
+
+## ⚡ Problem Faced
 During the initial setup, the following error occurred:
 
-Copy
-Edit
+```
 401 Unauthorized - key_id=your_razorpay_key_id
-Reason:
-The placeholder your_razorpay_key_id was not replaced with the actual Razorpay Key ID. Razorpay API requires a valid Key ID for authorization.
+```
 
-✅ Solution
-Get your Razorpay API Key:
+**Reason:**  
+The placeholder `your_razorpay_key_id` was not replaced with the actual Razorpay Key ID. Razorpay API requires a valid `Key ID` for authorization.
 
-Login to Razorpay Dashboard.
+---
 
-Navigate to Settings → API Keys.
+## ✅ Solution
 
-Generate a Test Key (for sandbox testing) or use your Live Key (for production).
+1. **Get your Razorpay API Key:**
+   - Login to [Razorpay Dashboard](https://dashboard.razorpay.com/).
+   - Navigate to **Settings → API Keys**.
+   - Generate a **Test Key** (for sandbox testing) or use your **Live Key** (for production).
+   - Copy the **Key ID**.
 
-Copy the Key ID.
-
-Update your code:
+2. **Update your code:**
 
 In your integration code (JavaScript/HTML), replace the placeholder:
 
-diff
-Copy
-Edit
+```diff
 - key_id: "your_razorpay_key_id"
 + key_id: "rzp_test_ABC1234567890" // Replace with your actual Key ID
+```
+
 Or if you're using Razorpay's Checkout script:
 
-html
-Copy
-Edit
+```html
 <script src="https://checkout.razorpay.com/v1/checkout.js"
     data-key="rzp_test_ABC1234567890"
     data-amount="50000"
     data-currency="INR"
     ...
 ></script>
-🚀 Quick Setup Example
-HTML + JavaScript:
+```
 
-html
-Copy
-Edit
+---
+
+## 🚀 Quick Setup Example
+
+**HTML + JavaScript:**
+
+```html
 <button id="payBtn">Pay Now</button>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -76,19 +80,22 @@ Edit
     e.preventDefault();
   }
 </script>
-📌 Important Points
-Only Key ID is exposed on frontend. Key Secret must be kept safe in backend server only.
+```
 
-Always verify payment signature on your backend server.
+---
 
-Use Test keys while testing to avoid real transactions.
+## 📌 Important Points
+- **Only Key ID** is exposed on frontend. **Key Secret** must be kept safe in backend server only.
+- Always verify payment signature on your backend server.
+- Use Test keys while testing to avoid real transactions.
 
-🔗 Helpful Links
-Razorpay API Documentation
+---
 
-Checkout Integration Docs
+## 🔗 Helpful Links
+- [Razorpay API Documentation](https://razorpay.com/docs/api/)
+- [Checkout Integration Docs](https://razorpay.com/docs/payments/checkout/)
+- [Generate API Keys](https://razorpay.com/docs/payments/dashboard/generate-api-keys/)
 
-Generate API Keys
+---
 
-Note: If you see Canvas2D willReadFrequently warnings in the console, they are only performance optimization suggestions for HTML canvas elements and can be ignored unless optimizing complex graphics.
-
+> **Note:** If you see `Canvas2D willReadFrequently` warnings in the console, they are only performance optimization suggestions for HTML canvas elements and can be ignored unless optimizing complex graphics.
